@@ -21,15 +21,15 @@ export default function ClientChatbotWrapper() {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  // Step 1: Show "Listening..." like a bot message
+  //Show "Listening..." like a bot message
   const updatedMessages = [...messages, { from: "bot", text: "Listening..." }];
   setMessages(updatedMessages);
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
 
-    // Step 2: Remove "Listening..." message
-    const cleanedMessages = updatedMessages.slice(0, -1); // remove last message
+    
+    const cleanedMessages = updatedMessages.slice(0, -1); 
     setMessages(cleanedMessages);
     setInput(transcript);
   };
@@ -37,7 +37,7 @@ export default function ClientChatbotWrapper() {
   recognition.onerror = (event) => {
     console.error("Speech recognition error:", event.error);
     
-    // Remove "Listening..." message
+    
     const cleanedMessages = updatedMessages.slice(0, -1);
     setMessages(cleanedMessages);
   };
@@ -55,7 +55,7 @@ export default function ClientChatbotWrapper() {
 
 
 
-  // const toggleChat = () => setIsOpen((prev) => !prev);
+  
   const toggleChat = () => {
     setIsOpen((prev) => {
       const newState = !prev;
