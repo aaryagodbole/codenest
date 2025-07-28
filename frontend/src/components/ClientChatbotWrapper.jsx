@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { fetchGeminiResponse } from "../lib/fetchGeminiResponse";
 import ReactMarkdown from "react-markdown";
