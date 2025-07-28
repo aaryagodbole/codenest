@@ -3,7 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppRouter from "./routes/AppRouter";
 import ClientChatbotWrapper from "./components/ClientChatbotWrapper";
 
-function App() {
+function App() 
+{
+
   return (
     <>
       <RouterProvider router={AppRouter()} />

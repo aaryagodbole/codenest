@@ -13,9 +13,10 @@ const BlogSingle = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/v1/getBlog/${id}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/getBlog/${id}`, {
           withCredentials: true,
         });
+
 
         if (res.data.success) {
           setBlog(res.data.data);
@@ -131,7 +132,7 @@ const BlogSingle = () => {
                   lineHeight: '1.8',
                   fontSize: '1.1rem'
                 }}
-                dangerouslySetInnerHTML={{ __html: blog.content }}
+                dangerouslySetInnerHTML={{ __html: blog.content.replace(/\n/g, "<br/>") }}
               />
             </div>
           </CardContent>
